@@ -2,33 +2,33 @@ namespace SocOps.Data;
 
 public static class Questions
 {
-    public const string FREE_SPACE = "FREE SPACE";
+    public const string FREE_SPACE = "Ô MIỄN PHÍ";
 
     public static readonly List<string> QuestionsList = new()
     {
-        "bikes to work",
-        "has lived in another country",
-        "has a pet",
-        "prefers tea over coffee",
-        "plays an instrument",
-        "speaks more than 2 languages",
-        "has run a marathon",
-        "was born in a different state",
-        "has met a celebrity",
-        "can juggle",
-        "has been skydiving",
-        "loves cooking",
-        "has a garden",
-        "has traveled to Asia",
-        "is left-handed",
-        "has a twin",
-        "plays video games",
-        "does yoga",
-        "has a hidden talent",
-        "loves spicy food",
-        "has been on TV",
-        "collects something unique",
-        "has read a book this month",
-        "knows sign language"
+        "đi xe đạp đi làm",
+        "đã sống ở nước ngoài",
+        "nuôi thú cưng",
+        "thích uống trà hơn cà phê",
+        "biết chơi nhạc cụ",
+        "nói được hơn 2 ngôn ngữ",
+        "đã chạy marathon",
+        "sinh ra ở tỉnh/thành khác",
+        "đã gặp người nổi tiếng",
+        "biết tung hứng",
+        "đã nhảy dù",
+        "mê nấu ăn",
+        "có vườn rau tại nhà",
+        "đã đi du lịch nước ngoài",
+        "thuận tay trái",
+        "có anh/chị/em sinh đôi",
+        "thường xuyên chơi game",
+        "tập yoga hoặc thiền",
+        "có tài năng ẩn",
+        "nghiện đồ ăn cay",
+        "đã từng lên truyền hình",
+        "sưu tầm thứ gì đó độc lạ",
+        "đọc sách trong tháng này",
+        "biết ngôn ngữ ký hiệu"
     };
 }

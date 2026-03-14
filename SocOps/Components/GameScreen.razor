@@ -1,36 +1,47 @@
 @using SocOps.Models
 
-<div class="flex flex-col min-h-full bg-gray-50">
-    <!-- Header -->
-    <header class="flex items-center justify-between p-3 bg-white border-b border-gray-200">
-        <button
-            @onclick="OnReset"
-            class="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100">
-            ← Back
-        </button>
-        <h1 class="font-bold text-gray-900">Soc Ops</h1>
-        <div class="w-16"></div>
-    </header>
+<div class="win-desktop-game">
+    <div class="win-window" style="flex: 1; display: flex; flex-direction: column;">
 
-    <!-- Instructions -->
-    <p class="text-center text-gray-500 text-sm py-2 px-4">
-        Tap a square when you find someone who matches it.
-    </p>
-
-    <!-- Bingo indicator -->
-    @if (HasBingo)
-    {
-        <div class="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-            🎉 BINGO! You got a line!
+        <!-- Title Bar -->
+        <div class="win-title-bar">
+            <span class="win-title-text">&#xF4FF;&nbsp; SOC OPS &mdash; Social Bingo</span>
+            <div class="win-title-buttons">
+                <button class="win-title-btn" tabindex="-1" aria-hidden="true">&#x2501;</button>
+                <button class="win-title-btn" tabindex="-1" aria-hidden="true">&#x25A1;</button>
+                <button class="win-title-btn" tabindex="-1" aria-hidden="true">&#x2715;</button>
+            </div>
         </div>
-    }
 
-    <!-- Board -->
-    <div class="flex-1 flex items-center justify-center p-3">
-        <BingoBoard
-            Board="@Board"
-            WinningSquareIds="@WinningSquareIds"
-            OnSquareClick="@OnSquareClick" />
+        <!-- Menu Bar -->
+        <div class="win-menubar">
+            <button @onclick="OnReset" class="win-menu-item">
+                ← Back
+            </button>
+            <span class="win-menu-item">Game</span>
+            <span class="win-menu-item">Help</span>
+        </div>
+
+        <!-- Bingo Banner -->
+        @if (HasBingo)
+        {
+            <div class="win-bingo-banner">&#x2605;&#x2605;&#x2605; BINGO! YOU GOT A LINE! &#x2605;&#x2605;&#x2605;</div>
+        }
+
+        <!-- Board area -->
+        <div class="win-client flex-1"
+             style="display: flex; align-items: center; justify-content: center; padding: 0.5rem;">
+            <BingoBoard Board="@Board" WinningSquareIds="@WinningSquareIds" OnSquareClick="@OnSquareClick" />
+        </div>
+
+        <!-- Status Bar -->
+        <div class="win-status-bar">
+            <button @onclick="OnReset" class="win-btn" style="padding: 1px 8px; font-size: 0.75rem; min-width: 0;">
+                &#x2190; Back
+            </button>
+            <div class="win-status-panel">Tap a square when you find someone who matches it.</div>
+        </div>
+
     </div>
 </div>
 

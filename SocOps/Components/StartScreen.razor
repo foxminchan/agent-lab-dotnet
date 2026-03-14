@@ -1,22 +1,46 @@
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
-    <div class="text-center max-w-sm">
-        <h1 class="text-4xl font-bold text-gray-900 mb-2">Soc Ops</h1>
-        <p class="text-lg text-gray-600 mb-8">Social Bingo</p>
+<div class="win-desktop">
+    <div class="win-window" style="width: 100%; max-width: 22rem;">
 
-        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-            <h2 class="font-semibold text-gray-800 mb-3">How to play</h2>
-            <ul class="text-left text-gray-600 text-sm space-y-2">
-                <li>• Find people who match the questions</li>
-                <li>• Tap a square when you find a match</li>
-                <li>• Get 5 in a row to win!</li>
-            </ul>
+        <!-- Title Bar -->
+        <div class="win-title-bar">
+            <span class="win-title-text">&#xF4FF;&nbsp; Soc Ops</span>
+            <div class="win-title-buttons">
+                <button class="win-title-btn" tabindex="-1" aria-hidden="true">&#x2501;</button>
+                <button class="win-title-btn" tabindex="-1" aria-hidden="true">&#x25A1;</button>
+                <button class="win-title-btn" tabindex="-1" aria-hidden="true">&#x2715;</button>
+            </div>
         </div>
 
-        <button
-            @onclick="OnStart"
-            class="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors">
-            Start Game
-        </button>
+        <!-- Client Area -->
+        <div class="win-client" style="padding: 1.25rem 1rem 1rem;">
+
+            <!-- App title -->
+            <div style="text-align: center; margin-bottom: 1rem;">
+                <div style="font-family: var(--font-mono); font-size: 2.8rem; letter-spacing: 0.1em; line-height: 1;">SOC OPS</div>
+                <div style="font-size: 0.75rem; letter-spacing: 0.12em; color: var(--win-shadow); margin-top: 2px;">SOCIAL BINGO v1.0</div>
+            </div>
+
+            <!-- How to Play group box -->
+            <div class="win-group-box" style="margin-bottom: 1.25rem;">
+                <span class="win-group-label">How to Play</span>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8rem; line-height: 2;">
+                    <li>&#x25B6;&nbsp; Find people who match the prompts</li>
+                    <li>&#x25B6;&nbsp; Tap a square when you find a match</li>
+                    <li>&#x25B6;&nbsp; Get 5 in a row to win!</li>
+                </ul>
+            </div>
+
+            <!-- Start Button -->
+            <div style="display: flex; justify-content: center;">
+                <button
+                    @onclick="OnStart"
+                    class="win-btn win-btn-primary"
+                    style="position: relative; width: 100%; padding: 8px 16px; font-size: 0.9rem;">
+                    &#x25B6;&nbsp; Start Game
+                </button>
+            </div>
+        </div>
+
     </div>
 </div>
 

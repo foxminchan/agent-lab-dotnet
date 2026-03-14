@@ -1,3 +1,29 @@
+/* =====================================================
+   SOC OPS — Windows 3.1 / DOS Retro Theme
+   ===================================================== */
+
+:root {
+    --win-desktop:      #008080;
+    --win-bg:           #c0c0c0;
+    --win-client:       #c0c0c0;
+    --win-highlight:    #ffffff;
+    --win-shadow:       #808080;
+    --win-dark-shadow:  #404040;
+    --win-title-active: #000080;
+    --win-title-text:   #ffffff;
+    --win-text:         #000000;
+    --win-select-bg:    #000080;
+    --win-select-text:  #ffffff;
+    --win-marked-bg:    #000080;
+    --win-marked-text:  #ffffff;
+    --win-winning-bg:   #800000;
+    --win-winning-text: #ffffff;
+    --win-free-bg:      #c0c0c0;
+    --win-status-bg:    #c0c0c0;
+    --font-ui:          'Pixelify Sans', 'Courier New', monospace;
+    --font-mono:        'VT323', 'Courier New', monospace;
+}
+
 html,
 body,
 #app {
@@ -6,9 +32,328 @@ body,
 }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: var(--font-ui);
+    background-color: var(--win-desktop);
+    color: var(--win-text);
     -webkit-tap-highlight-color: transparent;
+    image-rendering: pixelated;
 }
+
+/* =====================================================
+   WINDOWS 3.1 COMPONENT CLASSES
+   ===================================================== */
+
+/* 3D Border Primitives */
+.win-raised {
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--win-highlight) var(--win-dark-shadow) var(--win-dark-shadow) var(--win-highlight);
+    outline: 1px solid var(--win-shadow);
+    outline-offset: -2px;
+}
+
+.win-sunken {
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--win-dark-shadow) var(--win-highlight) var(--win-highlight) var(--win-dark-shadow);
+    outline: 1px solid var(--win-shadow);
+    outline-offset: -2px;
+}
+
+/* Window Frame */
+.win-window {
+    background-color: var(--win-bg);
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--win-highlight) var(--win-dark-shadow) var(--win-dark-shadow) var(--win-highlight);
+    box-shadow: 2px 2px 0 0 var(--win-dark-shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Title Bar */
+.win-title-bar {
+    background-color: var(--win-title-active);
+    color: var(--win-title-text);
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 3px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.win-title-text {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: 0.03em;
+}
+
+.win-title-buttons {
+    display: flex;
+    gap: 2px;
+    margin-left: 4px;
+}
+
+.win-title-btn {
+    width: 18px;
+    height: 14px;
+    background-color: var(--win-bg);
+    color: var(--win-text);
+    font-size: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--win-highlight) var(--win-dark-shadow) var(--win-dark-shadow) var(--win-highlight);
+    cursor: default;
+    flex-shrink: 0;
+    font-family: var(--font-ui);
+    line-height: 1;
+}
+
+/* Menu Bar */
+.win-menubar {
+    background-color: var(--win-bg);
+    border-bottom: 1px solid var(--win-shadow);
+    padding: 2px 4px;
+    display: flex;
+    gap: 0;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.win-menu-item {
+    padding: 1px 8px;
+    cursor: default;
+    font-family: var(--font-ui);
+}
+
+.win-menu-item:hover {
+    background-color: var(--win-select-bg);
+    color: var(--win-select-text);
+}
+
+/* Client Area */
+.win-client {
+    background-color: var(--win-client);
+    padding: 0.75rem;
+    flex: 1;
+    overflow: auto;
+}
+
+/* Group Box */
+.win-group-box {
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--win-dark-shadow) var(--win-highlight) var(--win-highlight) var(--win-dark-shadow);
+    outline: 1px solid var(--win-shadow);
+    outline-offset: -2px;
+    padding: 1rem 0.75rem 0.75rem;
+    position: relative;
+    margin-top: 1rem;
+}
+
+.win-group-label {
+    position: absolute;
+    top: -0.65rem;
+    left: 0.5rem;
+    background-color: var(--win-bg);
+    padding: 0 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: var(--font-ui);
+}
+
+/* Buttons */
+.win-btn {
+    background-color: var(--win-bg);
+    color: var(--win-text);
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--win-highlight) var(--win-dark-shadow) var(--win-dark-shadow) var(--win-highlight);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: none;
+    outline: 1px solid var(--win-shadow);
+    outline-offset: -2px;
+    min-width: 4rem;
+}
+
+.win-btn:active {
+    border-color: var(--win-dark-shadow) var(--win-highlight) var(--win-highlight) var(--win-dark-shadow);
+    padding: 6px 15px 4px 17px;
+}
+
+.win-btn:focus-visible {
+    outline: 1px dotted var(--win-text);
+    outline-offset: -4px;
+}
+
+.win-btn-primary {
+    min-width: 5rem;
+}
+
+.win-btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: 1px dotted var(--win-text);
+    pointer-events: none;
+}
+
+/* Status Bar */
+.win-status-bar {
+    background-color: var(--win-status-bg);
+    border-top: 1px solid var(--win-shadow);
+    padding: 3px 6px;
+    font-size: 0.75rem;
+    font-family: var(--font-ui);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.win-status-panel {
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--win-dark-shadow) var(--win-highlight) var(--win-highlight) var(--win-dark-shadow);
+    padding: 1px 6px;
+    flex: 1;
+    font-size: 0.75rem;
+}
+
+/* Bingo Banner */
+.win-bingo-banner {
+    background-color: var(--win-winning-bg);
+    color: var(--win-winning-text);
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-align: center;
+    padding: 4px 8px;
+    flex-shrink: 0;
+}
+
+/* Bingo Squares */
+.win-square {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: 0.65rem;
+    line-height: 1.25;
+    word-break: break-word;
+    hyphens: auto;
+    aspect-ratio: 1 / 1;
+    min-height: 60px;
+    cursor: pointer;
+    background-color: var(--win-bg);
+    color: var(--win-text);
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--win-highlight) var(--win-dark-shadow) var(--win-dark-shadow) var(--win-highlight);
+    transition: none;
+    user-select: none;
+}
+
+.win-square:active {
+    border-color: var(--win-dark-shadow) var(--win-highlight) var(--win-highlight) var(--win-dark-shadow);
+}
+
+.win-square--marked {
+    background-color: var(--win-marked-bg);
+    color: var(--win-marked-text);
+    border-color: var(--win-dark-shadow) var(--win-highlight) var(--win-highlight) var(--win-dark-shadow);
+}
+
+.win-square--winning {
+    background-color: var(--win-winning-bg);
+    color: var(--win-winning-text);
+    border-color: var(--win-dark-shadow) var(--win-highlight) var(--win-highlight) var(--win-dark-shadow);
+    font-weight: 700;
+}
+
+.win-square--free {
+    background-color: var(--win-free-bg);
+    color: var(--win-text);
+    border-color: var(--win-dark-shadow) var(--win-highlight) var(--win-highlight) var(--win-dark-shadow);
+    font-weight: 700;
+    font-size: 0.75rem;
+    cursor: default;
+}
+
+.win-square-check {
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    font-size: 0.6rem;
+    color: var(--win-winning-text);
+    font-family: var(--font-mono);
+}
+
+/* Board wrapper */
+.win-board-wrap {
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--win-dark-shadow) var(--win-highlight) var(--win-highlight) var(--win-dark-shadow);
+    outline: 1px solid var(--win-shadow);
+    outline-offset: -2px;
+    background-color: var(--win-dark-shadow);
+    padding: 2px;
+    width: 100%;
+    max-width: 28rem;
+    margin: 0 auto;
+}
+
+/* Dialog Overlay */
+.win-dialog-overlay {
+    background-color: rgba(0, 0, 128, 0.35);
+}
+
+/* Decorative desktop pattern — subtle dots */
+.win-desktop {
+    background-color: var(--win-desktop);
+    background-image: radial-gradient(circle, rgba(0,0,0,0.12) 1px, transparent 1px);
+    background-size: 4px 4px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.win-desktop-game {
+    background-color: var(--win-desktop);
+    background-image: radial-gradient(circle, rgba(0,0,0,0.12) 1px, transparent 1px);
+    background-size: 4px 4px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.25rem;
+}
+
+/* =====================================================
+   TAILWIND-LIKE UTILITY CLASSES
+   ===================================================== */
 
 /* Tailwind-like utility classes */
 .h-full { height: 100%; }
@@ -125,6 +470,7 @@ button {
     border: none;
     background: none;
     font: inherit;
+    font-family: var(--font-ui);
 }
 
 button:disabled {

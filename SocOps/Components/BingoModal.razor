@@ -1,14 +1,39 @@
-<div class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-    <div class="bg-white rounded-xl p-6 max-w-xs w-full text-center shadow-xl animate-[bounce_0.5s_ease-out]">
-        <div class="text-5xl mb-4">🎉</div>
-        <h2 class="text-3xl font-bold text-amber-500 mb-2">BINGO!</h2>
-        <p class="text-gray-600 mb-6">You completed a line!</p>
+<div class="win-dialog-overlay fixed inset-0 flex items-center justify-center p-4 z-50">
+    <div class="win-window max-w-xs w-full animate-[bounce_0.5s_ease-out]">
 
-        <button
-            @onclick="OnDismiss"
-            class="w-full bg-accent text-white font-semibold py-3 px-6 rounded-lg active:bg-accent-light transition-colors">
-            Keep Playing
-        </button>
+        <!-- Title Bar -->
+        <div class="win-title-bar">
+            <span class="win-title-text">Congratulations!</span>
+            <div class="win-title-buttons">
+                <button class="win-title-btn" tabindex="-1" aria-hidden="true">&#x2715;</button>
+            </div>
+        </div>
+
+        <!-- Client Area -->
+        <div class="win-client" style="padding: 1.5rem 1.25rem; text-align: center;">
+
+            <!-- Trophy Art -->
+            <div style="font-family: var(--font-mono); font-size: 3.5rem; line-height: 1; margin-bottom: 0.5rem;">&#x1F3C6;</div>
+
+            <!-- BINGO heading -->
+            <div style="font-family: var(--font-mono); font-size: 2.5rem; color: var(--win-winning-bg); letter-spacing: 0.15em; line-height: 1; margin-bottom: 0.25rem;">BINGO!</div>
+
+            <!-- Separator -->
+            <div style="height: 2px; background: linear-gradient(to right, var(--win-dark-shadow), var(--win-highlight)); margin: 0.75rem 0;"></div>
+
+            <p style="font-size: 0.85rem; margin-bottom: 1.25rem; color: var(--win-text);">You completed a line!</p>
+
+            <!-- OK Button -->
+            <div style="display: flex; justify-content: center;">
+                <button
+                    @onclick="OnDismiss"
+                    class="win-btn win-btn-primary"
+                    style="position: relative; min-width: 6rem; padding: 6px 24px;">
+                    OK
+                </button>
+            </div>
+        </div>
+
     </div>
 </div>
 
